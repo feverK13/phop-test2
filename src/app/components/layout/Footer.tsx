@@ -14,7 +14,7 @@ const contact = [
 
 export function Footer() {
   return (
-    <footer className="w-full bg-burgundy-dark px-6 py-16 text-bg md:px-12">
+    <footer className="w-full bg-burgundy-dark px-6 py-10 text-bg md:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Brand */}
@@ -41,7 +41,7 @@ export function Footer() {
           </nav>
 
           {/* Contact mini */}
-          <dl className="flex flex-col gap-4">
+          <dl className="flex flex-col gap-3">
             {contact.map((c) => (
               <div key={c.k} className="flex flex-col gap-1">
                 <dt className="font-mono text-caption uppercase tracking-wider text-bg/40">
@@ -62,7 +62,7 @@ export function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="mt-16 flex flex-col gap-3 border-t border-nude/30 pt-8 font-mono text-caption uppercase tracking-wider text-bg/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-nude/30 pt-5 font-mono text-caption uppercase tracking-wider text-bg/45 sm:flex-row sm:items-center sm:justify-between">
           <span>© 2026 Kurd Studio. Всі права захищені.</span>
           <span>Made with care in Hmelnytskyi</span>
         </div>
