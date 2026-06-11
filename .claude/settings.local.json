@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(pnpm *)",
+      "PowerShell(pnpm add *)",
+      "PowerShell(pnpm lint *)",
+      "mcp__plugin_context-mode_context-mode__ctx_execute",
+      "PowerShell(pnpm build *)"
+    ]
+  }
+}

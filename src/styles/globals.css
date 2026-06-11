@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap');
+@import 'tailwindcss';
+
+/* ── Brand tokens (locked — do not reinterpret) ───────────────────── */
+:root {
+  --bg: #f4e8d8; /* cream — primary background */
+  --ink: #3d0f0f; /* deep wine-black — body text */
+  --burgundy: #7a0e2f; /* primary brand, headline accent, CTAs */
+  --nude: #d9bfa0; /* warm sand — dividers, secondary surfaces */
+  --burgundy-dark: #4a0820; /* hover states, dark sections */
+  --accent: #ff6b35; /* single bold accent — use sparingly */
+}
+
+@theme {
+  /* Colors — generate bg, text and border utilities */
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-burgundy: var(--burgundy);
+  --color-nude: var(--nude);
+  --color-burgundy-dark: var(--burgundy-dark);
+  --color-accent: var(--accent);
+
+  /* Typography */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter Tight', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Type scale → text-display-xl, text-body-l, text-caption, … */
+  --text-display-xl: clamp(4rem, 10vw, 8rem);
+  --text-display-l: clamp(2.5rem, 6vw, 5rem);
+  --text-display-m: 3rem;
+  --text-body-l: 1.25rem;
+  --text-caption: 0.8125rem;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    font-family: var(--font-body);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+
+  ::selection {
+    background-color: var(--burgundy);
+    color: var(--bg);
+  }
+}
+
+/* ── Radix accordion height animation ──────────────────────────────── */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* ── Global reduced-motion guard (covers CSS animations/transitions,
+      e.g. the accordion height animation, that JS hooks don't reach) ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
